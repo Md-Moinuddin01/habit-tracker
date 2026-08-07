@@ -63,3 +63,34 @@ function setDateAndGreeting() {
   const hour = today.getHours();
   let message = "Good day!";
 
+
+  if (hour < 12) {
+    message = "Good morning!";
+  } else if (hour < 18) {
+    message = "Good afternoon!";
+  } else {
+    message = "Good evening!";
+  }
+
+  greeting.textContent = message;
+}
+
+function setDailyQuote() {
+  const randomIndex = Math.floor(Math.random() * motivationalQuotes.length);
+  quoteText.textContent = motivationalQuotes[randomIndex];
+}
+
+function getThemePreference() {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    return savedTheme;
+  }
+  return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+}
+
+function applyTheme(theme) {
+  document.body.classList.toggle("dark", theme === "dark");
+  themeIcon.textContent = theme === "dark" ? "D" : "L";
+  themeLabel.textContent = theme === "dark" ? "Dark Mode" : "Light Mode";
+  localStorage.setItem("theme", theme);
+}
