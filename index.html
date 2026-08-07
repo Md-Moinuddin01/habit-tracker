@@ -70,3 +70,38 @@
         </article>
       </section>
 
+      <section class="card progress-section">
+        <div class="section-head">
+          <h2>Today’s Progress</h2>
+          <p id="progressText">0% complete</p>
+        </div>
+        <div class="progress-bar" aria-label="Habit progress">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <p id="celebrationMessage" class="celebration-message" hidden>Great job! All your habits are done for today.</p>
+      </section>
+
+      <section class="card habits-section">
+        <div class="section-head">
+          <h2>Habit List</h2>
+          <p class="section-subtitle">Check things off, edit when needed, and keep things moving.</p>
+        </div>
+
+        <p id="emptyState" class="empty-state">No habits yet. Add your first habit above.</p>
+        <div id="habitList" class="habit-list"></div>
+      </section>
+
+      <section class="card about-section" id="about">
+        <h2>About</h2>
+        <p>
+          This is a simple habit tracker made with plain HTML, CSS, and JavaScript.
+          It saves habits in Local Storage, so your list stays after refreshing the page.
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
