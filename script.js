@@ -132,3 +132,52 @@ function toggleHabitComplete(habitId) {
 
     return habit;
   });
+
+
+  
+  saveHabits();
+  renderHabits();
+}
+
+function editHabit(habitId) {
+  const habit = habits.find(function (item) {
+    return item.id === habitId;
+  });
+
+  if (!habit) {
+    return;
+  }
+
+  const newName = prompt("Edit habit name:", habit.name);
+
+  if (newName === null) {
+    return;
+  }
+
+  const trimmedName = newName.trim();
+
+  if (!trimmedName) {
+    alert("Habit name cannot be empty.");
+    return;
+  }
+
+  habit.name = trimmedName;
+  saveHabits();
+  renderHabits();
+}
+
+function deleteHabit(habitId) {
+  const shouldDelete = confirm("Are you sure you want to delete this habit?");
+
+  if (!shouldDelete) {
+    return;
+  }
+
+  habits = habits.filter(function (habit) {
+    return habit.id !== habitId;
+  });
+
+  saveHabits();
+  renderHabits();
+}
+
