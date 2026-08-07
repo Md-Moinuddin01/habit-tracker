@@ -296,3 +296,21 @@ function initThemeToggle() {
     applyTheme(nextTheme);
   });
 }
+
+addHabitBtn.addEventListener("click", addHabit);
+
+habitInput.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    addHabit();
+  }
+});
+
+searchInput.addEventListener("input", renderHabits);
+
+filterButtons.forEach(function (button) {
+  button.addEventListener("click", function () {
+    currentFilter = button.dataset.filter;
+    setActiveFilter(button);
+    renderHabits();
+  });
+});
