@@ -94,3 +94,41 @@ function applyTheme(theme) {
   themeLabel.textContent = theme === "dark" ? "Dark Mode" : "Light Mode";
   localStorage.setItem("theme", theme);
 }
+
+
+
+
+
+function addHabit() {
+  const habitName = habitInput.value.trim();
+
+  if (!habitName) {
+    alert("Please type a habit first.");
+    return;
+  }
+
+  habits.unshift({
+    id: Date.now(),
+    name: habitName,
+    completed: false,
+    completedDate: ""
+  });
+
+  habitInput.value = "";
+  saveHabits();
+  renderHabits();
+}
+
+function toggleHabitComplete(habitId) {
+  habits = habits.map(function (habit) {
+    if (habit.id === habitId) {
+      const isCompleted = !habit.completed;
+      return {
+        ...habit,
+        completed: isCompleted,
+        completedDate: isCompleted ? getTodayKey() : ""
+      };
+    }
+
+    return habit;
+  });
