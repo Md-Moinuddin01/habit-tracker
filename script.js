@@ -286,3 +286,13 @@ function setActiveFilter(buttonClicked) {
   buttonClicked.classList.add("active");
 }
 
+
+function initThemeToggle() {
+  const savedTheme = getThemePreference();
+  applyTheme(savedTheme);
+
+  themeToggle.addEventListener("click", function () {
+    const nextTheme = document.body.classList.contains("dark") ? "light" : "dark";
+    applyTheme(nextTheme);
+  });
+}
