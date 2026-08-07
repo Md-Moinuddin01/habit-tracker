@@ -57,3 +57,22 @@ body {
   text-transform: uppercase;
   margin-bottom: 8px;
 }
+
+
+h1 {
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 1.15;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 12px 16px;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
