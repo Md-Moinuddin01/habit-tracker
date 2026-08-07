@@ -181,3 +181,26 @@ function deleteHabit(habitId) {
   renderHabits();
 }
 
+function getFilteredHabits() {
+  const searchTerm = searchInput.value.trim().toLowerCase();
+
+  return habits.filter(function (habit) {
+    const matchesSearch = habit.name.toLowerCase().includes(searchTerm);
+    const isCompletedToday = habit.completed;
+
+    if (!matchesSearch) {
+      return false;
+    }
+
+    if (currentFilter === "completed") {
+      return isCompletedToday;
+    }
+
+    if (currentFilter === "pending") {
+      return !isCompletedToday;
+    }
+
+    return true;
+  });
+}
+
