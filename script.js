@@ -204,3 +204,21 @@ function getFilteredHabits() {
   });
 }
 
+function updateStatistics() {
+  const totalCount = habits.length;
+  const completedCount = habits.filter(function (habit) {
+    return habit.completed;
+  }).length;
+  const remainingCount = totalCount - completedCount;
+  const progressPercent = totalCount === 0 ? 0 : Math.round((completedCount / totalCount) * 100);
+
+  totalHabits.textContent = totalCount;
+  completedHabits.textContent = completedCount;
+  remainingHabits.textContent = remainingCount;
+  progressFill.style.width = progressPercent + "%";
+  progressText.textContent = progressPercent + "% complete";
+
+  const allDone = totalCount > 0 && completedCount === totalCount;
+  celebrationMessage.hidden = !allDone;
+}
+
