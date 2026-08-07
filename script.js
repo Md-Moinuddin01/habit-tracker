@@ -278,3 +278,11 @@ function renderHabits() {
   updateStatistics();
 }
 
+function setActiveFilter(buttonClicked) {
+  filterButtons.forEach(function (button) {
+    button.classList.remove("active");
+  });
+
+  buttonClicked.classList.add("active");
+}
+
