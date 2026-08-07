@@ -210,6 +210,66 @@ button {
 }
 
 
+.filter-btn.active {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.stat-card {
+  padding: 20px;
+}
+
+.stat-card h3 {
+  font-size: 2rem;
+  margin-top: 10px;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: end;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.progress-bar {
+  height: 16px;
+  border-radius: 999px;
+  background: #dde6f2;
+  overflow: hidden;
+  margin: 10px 0 14px;
+}
+
+body.dark .progress-bar {
+  background: #26334b;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--primary), var(--success));
+  transition: width 0.3s ease;
+}
+
+.celebration-message {
+  color: var(--success);
+  font-weight: 700;
+}
+
+.habit-list {
+  display: grid;
+  gap: 14px;
+}
+
 
 
 
