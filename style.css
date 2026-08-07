@@ -76,3 +76,45 @@ h1 {
   cursor: pointer;
   box-shadow: var(--shadow);
 }
+
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+}
+
+main {
+  display: grid;
+  gap: 20px;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  padding: 24px;
+}
+
+.hero-text h2 {
+  font-size: 1.8rem;
+  margin-bottom: 8px;
+}
+
+.date-text,
+.hero-note,
+.section-subtitle,
+.empty-state,
+.about-section p,
+.quote-box p,
+.stat-card p,
+.section-head p {
+  color: var(--muted);
+}
+
+
+
+
+
+
