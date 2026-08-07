@@ -314,3 +314,9 @@ filterButtons.forEach(function (button) {
     renderHabits();
   });
 });
+
+loadHabits();
+setDateAndGreeting();
+setDailyQuote();
+initThemeToggle();
+renderHabits();
