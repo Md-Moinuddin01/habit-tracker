@@ -222,3 +222,59 @@ function updateStatistics() {
   celebrationMessage.hidden = !allDone;
 }
 
+function renderHabits() {
+  const filteredHabits = getFilteredHabits();
+
+  habitList.innerHTML = "";
+  emptyState.textContent = "No habits yet. Add your first habit above.";
+
+  if (habits.length === 0) {
+    emptyState.hidden = false;
+  } else if (filteredHabits.length === 0) {
+    emptyState.hidden = false;
+    emptyState.textContent = "No habits match your search or filter.";
+  } else {
+    emptyState.hidden = true;
+    emptyState.textContent = "No habits yet. Add your first habit above.";
+  }
+
+  filteredHabits.forEach(function (habit) {
+    const item = document.createElement("article");
+    item.className = "habit-item" + (habit.completed ? " completed" : "");
+
+    const isCompletedToday = habit.completed && habit.completedDate === getTodayKey();
+
+    item.innerHTML = `
+      <input class="habit-check" type="checkbox" ${habit.completed ? "checked" : ""} aria-label="Mark ${habit.name} as completed">
+      <div class="habit-info">
+        <p class="habit-name">${habit.name}</p>
+        <p class="habit-status">${isCompletedToday ? "Completed today" : habit.completed ? "Completed" : "Pending"}</p>
+      </div>
+      <div class="habit-actions">
+        <button class="habit-action edit" type="button">Edit</button>
+        <button class="habit-action delete" type="button">Delete</button>
+      </div>
+    `;
+
+    const checkbox = item.querySelector(".habit-check");
+    const editBtn = item.querySelector(".edit");
+    const deleteBtn = item.querySelector(".delete");
+
+    checkbox.addEventListener("change", function () {
+      toggleHabitComplete(habit.id);
+    });
+
+    editBtn.addEventListener("click", function () {
+      editHabit(habit.id);
+    });
+
+    deleteBtn.addEventListener("click", function () {
+      deleteHabit(habit.id);
+    });
+
+    habitList.appendChild(item);
+  });
+
+  updateStatistics();
+}
+
