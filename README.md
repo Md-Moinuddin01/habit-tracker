@@ -1,2 +1,2 @@
 # habit-tracker
-A normal adding your habit 
+A normal website were you can add your habit and preview it
